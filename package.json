@@ -1,0 +1,36 @@
+{
+  "name": "decepticons",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "fixed-data-table": "^0.6.4",
+    "jquery": "^3.2.1",
+    "material-ui-datatables": "^0.18.2",
+    "moment": "^2.18.1",
+    "process": "^0.11.10",
+    "prop-types": "^15.5.10",
+    "ramda": "^0.24.1",
+    "react": "^15.6.1",
+    "react-autocomplete": "^1.7.1",
+    "react-bootstrap": "^0.31.3",
+    "react-datetime": "^2.10.1",
+    "react-dom": "^15.6.1",
+    "react-materialize": "^1.0.11",
+    "react-places-autocomplete": "^5.4.3",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "^1.0.13",
+    "react-select": "^1.0.0-rc.7",
+    "react-table": "^6.5.3",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
