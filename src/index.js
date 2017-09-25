@@ -5,7 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Cards from './components/Cards';
 import registerServiceWorker from './registerServiceWorker'; 
 
-ReactDOM.render(<Provider>
+ReactDOM.render(<Provider store={{}}>
     <BrowserRouter>
     <div>
         <Route path='/' component={Cards} />

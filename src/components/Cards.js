@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/custom.css';
-import {Row,Input} from 'react-materialize';
 
 const Cards = React.createClass({
   getInitialState: function() {
@@ -26,6 +25,9 @@ const Cards = React.createClass({
     console.log(startKey)
     var i = 0;
     var data = [];
+    if(startKey%incCounter !== 0) {
+      startKey += startKey%incCounter
+    }
     for (i = startKey; i < counter; i+=incCounter) {
       var fakeData = (<div key={i} id={i} className="col-md-4 animate"><div className="data-info"><div className="data-text">Data {i}</div></div></div>);
       data.push(fakeData);
@@ -53,7 +55,7 @@ const Cards = React.createClass({
   },  
 
   filterdivide: function(value) {
-    if (value == 0) {
+    if (value === 0) {
       this.setState({data:this.state.defaultState,length:100,startKey: 1})
     } else {
      var newlen = this.state.length + 50;
@@ -83,17 +85,17 @@ const Cards = React.createClass({
         
         <div className="container">
         <div className="col-md-12">
-            <input id="f3" onChange={this.filterdivideby} type="radio" name="filter" />
+            <input id="f3" onClick={this.filterdivideby} type="radio" name="filter" />
             <label htmlFor="f3">Filter 3</label>
-          <input id="f10" onChange={this.filterdivideby} type="radio" name="filter"/>
+          <input id="f10" onClick={this.filterdivideby} type="radio" name="filter"/>
           <label htmlFor="f10">Filter 10</label>
-          <input id="f5" onChange={this.filterdivideby} type="radio" name="filter"/>
+          <input id="f5" onClick={this.filterdivideby} type="radio" name="filter"/>
           <label htmlFor="f5">Filter 5</label>
-          <input id="f1" onChange={this.filterdivideby} type="radio" name="filter"/>
+          <input id="f1" onClick={this.filterdivideby} type="radio" name="filter"/>
           <label htmlFor="f1">Filter 1</label>
-          <input id="f15" onChange={this.filterdivideby} type="radio" name="filter"/>
+          <input id="f15" onClick={this.filterdivideby} type="radio" name="filter"/>
           <label htmlFor="f15">Filter 15</label>
-          <input id="f0" onChange={this.filterdivideby} type="radio" name="filter"/>
+          <input id="f0" onClick={this.filterdivideby} type="radio" name="filter"/>
           <label htmlFor="f0">Remove Filter</label>
           </div>
           {this.state.data}
