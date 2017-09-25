@@ -4,7 +4,7 @@ import {Row,Input} from 'react-materialize';
 
 const Cards = React.createClass({
   getInitialState: function() {
-    return ({data: [], requestSent: false,defaultState:[],length: 200,startKey : 0});
+    return ({data: [], requestSent: false,defaultState:[],length: 50,startKey: 1});
   }, 
 
   componentDidMount: function() {
@@ -18,17 +18,16 @@ const Cards = React.createClass({
   },
 
   initFakeData: function() {
-    let newlength = this.state.data.length+(this.state.startKey*20);
-    var data = this.createFakeData(newlength, 300);
-
-    this.setState({data: data,defaultState: data,length:newlength});
+    var data = this.createFakeData(this.state.data.length, this.state.length, 1);
+    this.setState({data: data,defaultState:data});
   },
 
-  createFakeData: function(startKey, counter) {
+  createFakeData: function(startKey, counter, incCounter) {
+    console.log(startKey)
     var i = 0;
     var data = [];
-    for (i = 0; i < counter; i=i+this.state.startKey) {
-      var fakeData = (<div key={this.state.startKey+i} id={this.state.startKey+i} className="col-md-4 animate"><div className="data-info"><div className="data-text">Data {startKey+i}</div></div></div>);
+    for (i = startKey; i < counter; i+=incCounter) {
+      var fakeData = (<div key={i} id={i} className="col-md-4 animate"><div className="data-info"><div className="data-text">Data {i}</div></div></div>);
       data.push(fakeData);
     }
 
@@ -46,17 +45,20 @@ const Cards = React.createClass({
   },
 
   doQuery: function() {
-        var fakeData = this.createFakeData(this.state.length, 20*this.state.startKey);
+        var newlen = this.state.length + 50;
+        console.log(this.state.length,newlen)
+        var fakeData = this.createFakeData(this.state.length, newlen, this.state.startKey);
         var newData = this.state.data.concat(fakeData);
-        this.setState({data: newData, requestSent: false});
+        this.setState({data: newData, requestSent: false,length:newlen});
   },  
 
   filterdivide: function(value) {
     if (value == 0) {
-      this.setState({data:this.state.defaultState,length:200,startKey: 0})
+      this.setState({data:this.state.defaultState,length:100,startKey: 1})
     } else {
-     var  data = this.createFakeData(this.state.length,this.state.length+50);
-      this.setState({data:data,startKey:value,length:this.state.length+50})
+     var newlen = this.state.length + 50;
+     var  data = this.createFakeData(0,newlen, value);
+      this.setState({data:data,startKey:value,length:newlen,startKey:value})
     }    
   }, 
 

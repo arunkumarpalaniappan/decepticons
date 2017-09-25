@@ -69,7 +69,7 @@ body {
   -webkit-animation: fadein 2s; /* Safari and Chrome */
   -o-animation: fadein 2s; /* Opera */
 }
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+
 
 
 @keyframes ripple {
